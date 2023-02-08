@@ -1,0 +1,43 @@
+<div class="container bg-white masterdiv">
+    <h1 class="text-center mt-3"> 𝐿𝑒𝓉𝓈 𝐸𝓍𝓅𝑒𝓇𝒾𝑒𝓃𝒸𝑒 𝓈𝑜𝓂𝑒 𝒱𝒾𝒹𝑒𝑜𝓈 </h1>
+    <div class="d-flex mt-3">
+        <aside>
+            <div class="videoScroll">
+            <div *ngFor="let data of youtubeData ; let i=index" >
+                    <video type="video/mp4" src={{data.url}} controls 
+                    (click)="playingVideo(i)" [autoplay]=false [muted]="true"></video>
+            </div>
+            </div>
+        </aside>
+
+        
+        <div *ngIf="streamingVideo" class="container">
+            
+            <video type="video/mp4" src={{streamingVideo.url}}  controls autoplay class="forLrgevideo"></video>
+            <div>
+                <h4 class="ms-2">{{streamingVideo.desc}} | {{streamingVideo.Director}} | {{streamingVideo.Singer}}</h4>
+                <i class="float-end">For more Details <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#more_Details" (click)="moreDetails(more_Details)">Click Here</button> </i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #more_Details let-modal>
+    <div *ngIf="streamingVideo">
+     <div class="text-center">
+        <button class="text-white float-end float-top btn btn-danger" (click)="closePopup()">X</button>
+        <h2 class="text-center pt-3">More Details About Video</h2> 
+        <p> <b> {{streamingVideo.desc}} </b> </p>
+        <p><b> {{streamingVideo.Director}} </b></p>
+       <p> <b> {{streamingVideo.Music}} </b> </p> 
+        <b class="mb-3"> {{streamingVideo.Singer}} </b> <br>
+
+     </div>
+    </div>
+
+</ng-template>
+
+
+
+
