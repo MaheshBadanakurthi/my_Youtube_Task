@@ -1,23 +1,25 @@
-<div class="masterdiv">
-    <div class="container myForm mt-3">
-
+<div class="container masterdiv">
+    <div class="container myForm mt-5">
         <form action="" [formGroup]="userLogin" class="mt-5">
-            <h1 class="text-center ">Please Login here</h1>
+            <h1 class="text-center ">𝐔𝐬𝐞𝐫 𝐋𝐨𝐠𝐢𝐧</h1>
             <div>
                 <label for="" class="form-label mt-2 ms-5"> <b>User Name</b></label>
-                <input type="text" class="form-control w-50 ms-5" formControlName="user_name" placeholder="Enter User name">
-                <p class="ms-5" *ngIf="userLogin.get('user_name')?.hasError('required') && userLogin.get('user_name')?.touched">
+                <input type="text" class="form-control w-50 ms-5" formControlName="user_name"
+                    placeholder="Enter User name" >
+                <p class="ms-5"
+                    *ngIf="userLogin.get('user_name')?.hasError('required') && userLogin.get('user_name')?.touched">
                     <b class="text-danger">Please Enter User Name</b>
                 </p>
-            
                 <label for="" class="form-label ms-5"> <b>Password</b></label>
-                <input type="password" class="form-control w-50 ms-5" formControlName="password" placeholder="Enter Your Password ">
-                <p class="ms-5" *ngIf="userLogin.get('password')?.hasError('required') && userLogin.get('password')?.touched">
+                <input type="password" class="form-control w-50 ms-5" formControlName="password"
+                    placeholder="Enter Your Password ">
+                <p class="ms-5"
+                    *ngIf="userLogin.get('password')?.hasError('required') && userLogin.get('password')?.touched">
                     <b class="text-danger">Please Enter Password here</b>
                 </p>
-                </div>
+            </div>
             <div class="ms-5">
-                <button type="button" class="btn btn-success mt-4 mb-3" (click)="userLoggedin()">Submit</button>
+                <button type="submit" class="btn btn-success mt-4 mb-3" (click)="userLoggedin()">Submit</button>
                 <button type="reset" class="ms-5 btn btn-danger mt-4 mb-3"> Reset</button>
             </div>
         </form>
