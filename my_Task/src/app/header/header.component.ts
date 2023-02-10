@@ -18,6 +18,8 @@ export class HeaderComponent {
       timerProgressBar: true,
       timer: 1500
     })
-    this.route.navigate(['login'])
-  }
+    sessionStorage.removeItem('loginRes');
+
+    this.route.navigate(['login']);
+  };
 }

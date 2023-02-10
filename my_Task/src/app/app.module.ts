@@ -12,6 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ActiveService } from './active.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { PopupComponent } from './popup/popup.component';
+import { BsModalService } from 'ngx-bootstrap/modal';
 const myNavigation: Routes = [
   {
     path: '', component: UserLoginComponent
@@ -34,18 +36,18 @@ const myNavigation: Routes = [
     DashBoardComponent,
     HeaderComponent,
     FooterComponent,
+    PopupComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(myNavigation),
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule
   ],
 
-  providers: [ActiveService],
+  providers: [ActiveService,BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,12 +8,14 @@ import { Observable } from 'rxjs';
 export class ActiveService implements CanActivate {
   login: boolean = false;
 
-  constructor() { }
+  constructor(private router:Router) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (this.login) {
-      return true
+    let res=sessionStorage.getItem('loginRes');
+    if (res) {
+      return true;
     }
     else {
+      this.router.navigate(['/login'])
       return false
     }
   }

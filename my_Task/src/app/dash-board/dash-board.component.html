@@ -15,23 +15,12 @@
             <video type="video/mp4" src={{streamingVideo.url}} controls  class="forLargevideo"></video>
             <div class="mb-5">
                 <h5 class="ms-2">{{streamingVideo.desc}} | {{streamingVideo.Director}} | {{streamingVideo.Singer}}</h5>
-                <i class="float-end">For more Details <button class="btn btn-outline-warning" data-bs-toggle="modal"
-                        data-bs-target="#more_Details" (click)="moreDetails(more_Details)">Click Here</button> </i>
+                <i class="float-end">For more Details <button class="btn btn-outline-warning"
+                         (click)="videoDetails(streamingVideo)">Click Here</button> </i>
             </div>
         </div>
-    </div>     
+    </div>
 </div>
 <app-footer></app-footer>
 
-<ng-template #more_Details let-modal>
-    <div *ngIf="streamingVideo">
-        <div class="text-center">
-            <button class="text-white float-end float-top btn btn-danger" (click)="closePopup()">X</button>
-            <h2 class="text-center text-danger pt-2">𝙑𝙞𝙙𝙚𝙤 𝙄𝙣𝙛𝙤</h2>
-            <p> <b> {{streamingVideo.desc}} </b> </p>
-            <p><b> {{streamingVideo.Director}} </b></p>
-            <p> <b> {{streamingVideo.Music}} </b> </p>
-            <b class="pb-3"> {{streamingVideo.Singer}} </b> <br>
-        </div>
-    </div>
-</ng-template>
+
